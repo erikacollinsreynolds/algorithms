@@ -1,4 +1,4 @@
-// Introduction Problem
+// // // // Introduction Problem // // // //
 
 // const AverageOfSubarrayOfSizeK = (array, k) => {
 //   const result = [];
@@ -27,8 +27,7 @@
 // console.log(AverageOfSubarrayOfSizeK([2, 1, 5, 1, 3, 2], 3)) // [2.6, 2.3, 3, 2]
 
 
-
-// Maximum Sum Subarray of Size K
+// // // // Maximum Sum Subarray of Size K // // // //
   // Time Complexity: 0(n)
   // Space Complexity: 0(1)
 
@@ -70,8 +69,8 @@
 
 // console.log(MaxSum([2, 1, 5, 1, 3, 2], 3)) // Output: 9
 
-
-// Smallest Subarray with a Greater Sum  (given they are all positive numbers)
+// // // // Smallest Subarray with a Greater Sum // // // //
+// (given they are all positive numbers)
   // Time Complexity: 0(n)
   // Space Complexity: 0(1)
 
@@ -100,8 +99,7 @@
 // console.log(smallestLength([2, 1, 5, 2, 3, 2], 7)) // Output: 2
 // console.log(smallestLength([2, 7, 5, 2, 3, 2], 7)) // Output: 1
 
-
-// Longest Substring with Distinct Characters
+// // // // Longest Substring with Distinct Characters // // // //
 // Given a string, find the length of the longest substring, which has all distinct characters.
 /* Example: 
     Input: String = 'abbbb'
@@ -163,3 +161,79 @@
 // console.log(longestSubstring("aabccbb")) // Output: 3;
 // console.log(longestSubstring("abccde")) // Output: 3;
 // console.log(longestSubstring('hippopotamus')) // Output: 7;
+
+
+// // // // Problem Challenge 1: Permutation in a String // // // //
+/*
+Given a string and a pattern, find out if the string contains any permutation of the pattern.
+
+Permutation is defined as the re-arranging of the characters of the string. For example, “abc” has the following six permutations:
+
+abc
+acb
+bac
+bca
+cab
+cba
+*/
+
+const find_permutation = (string, pattern) => {
+  let start = 0,
+    matched = 0,
+    charFreq = {};
+  
+  // Using a hashMap to sroe frequency of characters in pattern
+  for (let i = 0; i < pattern.length; i++) {
+    const chr = pattern[i];
+    console.log(chr)
+    if (!(chr in charFreq)) {
+      charFreq[chr] = 0;
+    }
+    charFreq[chr] =+ 1;
+  }
+  console.log(charFreq)
+
+  // Our goal is to match all the characters from the 'charFreq' with the current 
+  // window try to extend the range [start, end]
+  for (let end = 0; end < string.length; end++) {
+    const rightChar = string[end];
+    console.log(rightChar)
+    console.log(charFreq)
+    if (rightChar in charFreq) {
+      // Decremenet the freq of the matched character
+      charFreq[rightChar] -= 1;
+      if (charFreq[rightChar] === 0) {
+        matched += 1;
+      }
+    }
+    console.log(charFreq)
+    console.log(matched)
+    if (matched === Object.keys(charFreq).length) {
+      return true;
+    }
+
+    // Shrink sliding window
+    if (end >= pattern.length - 1) {
+      let leftChar = string[start];
+      console.log(leftChar)
+      start += 1;
+      if (leftChar in charFreq) {
+        if (charFreq[leftChar] === 0) {
+          matched -= 1;
+        }
+        charFreq[leftChar] += 1;
+      }
+      console.log(charFreq)
+      console.log(matched)
+    }
+  }
+  // return boolean
+  return false;
+}
+
+// console.log(`Permutation exist: ${find_permutation('oidbcaf', 'abc')}`);
+// console.log(`Permutation exist: ${find_permutation('odicf', 'dc')}`);
+// console.log(`Permutation exist: ${find_permutation('bcdxabcdy', 'bcdyabcdx')}`);
+console.log(`Permutation exist: ${find_permutation('aaacb', 'abc')}`);
+
+
