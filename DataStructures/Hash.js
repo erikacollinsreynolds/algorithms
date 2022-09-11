@@ -54,4 +54,3 @@
 
 // // Set key-value in memory/hashTable
 // console.log(hashTable.set('Victor', 24)) //[ <1 empty item>, [ [ 'Victor', 24 ] ], <2 empty items> ]
-//blah

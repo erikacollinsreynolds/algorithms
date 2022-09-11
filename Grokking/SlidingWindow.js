@@ -287,5 +287,3 @@ console.log(`Permutation exist: ${find_permutation('oidbcaf', 'abc')}`);
 
 // console.log(find_string_anagrams('ppqp', 'pq'));
 // console.log(find_string_anagrams('abbcabc', 'abc'));
-
-// blah 
