@@ -53,7 +53,7 @@ expect(result).toEqual(4);
 
   - Test-Driven Development:
     -- process of writing tests for a feature BEFORE adding the actual features
-    -- advocates of TDD argue that developer who strictly follow TDD end up writing more modular, maintainable, and readable code
+    -- advocates of TDD argue that developers who strictly follow TDD end up writing more modular, maintainable, and readable code
     -- the general process of TDD is:
       -- Identify the feature to be added
       -- Write a test that tests that the feature exists and works
