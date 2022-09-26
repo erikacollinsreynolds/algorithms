@@ -115,76 +115,76 @@
 // // // // Breadth First Values // // // //
 /* Write a function, breadthFirstValues, that takes in the root of a binary tree. The function should return an array containing all values of the tree in breadth-first order. */
 
-class Node {
-  constructor(val) {
-    this.val = val;
-    this.left = null;
-    this.right = null;
-  }
-}
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.left = null;
+//     this.right = null;
+//   }
+// }
 
-const breadthFirstValues = (root) => {
-  // declare array for output
-  //initialize new instance of queue
-  //add root to the end of queue
-  const result = [];
-  let queue = [root];
+// const breadthFirstValues = (root) => {
+//   // declare array for output
+//   //initialize new instance of queue
+//   //add root to the end of queue
+//   const result = [];
+//   let queue = [root];
 
-  if (root === null) return [];
+//   if (root === null) return [];
   
-  while (queue.length > 0) {
-    //declare current
-    const currentNode = queue.shift()
+//   while (queue.length > 0) {
+//     //declare current
+//     const currentNode = queue.shift()
 
-    //push current value to result
-    result.push(currentNode.val);
+//     //push current value to result
+//     result.push(currentNode.val);
 
-    //if left and right are null, break out of while loop
-    if(currentNode.left === null && currentNode.right === null) continue
+//     //if left and right are null, break out of while loop
+//     if(currentNode.left === null && currentNode.right === null) continue
     
-    //if currentnode.left exists
-      //push into queue 
+//     //if currentnode.left exists
+//       //push into queue 
 
-      if(currentNode.left) {
-        queue.push(currentNode.left)
-      }
+//       if(currentNode.left) {
+//         queue.push(currentNode.left)
+//       }
       
-    //if current.right exists
-      //push into queue
+//     //if current.right exists
+//       //push into queue
 
-      if(currentNode.right) {
-        queue.push(currentNode.right)
-      }
+//       if(currentNode.right) {
+//         queue.push(currentNode.right)
+//       }
     
-  }
+//   }
 
-  console.log('result', result)
-  // return output array 
-  return result;
-};
+//   console.log('result', result)
+//   // return output array 
+//   return result;
+// };
 
 
-// test_00:
-const a = new Node('a');
-const b = new Node('b');
-const c = new Node('c');
-const d = new Node('d');
-const e = new Node('e');
-const f = new Node('f');
+// // test_00:
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// const d = new Node('d');
+// const e = new Node('e');
+// const f = new Node('f');
 
-a.left = b;
-a.right = c;
-b.left = d;
-b.right = e;
-c.right = f;
+// a.left = b;
+// a.right = c;
+// b.left = d;
+// b.right = e;
+// c.right = f;
 
-//      a
-//    /   \
-//   b     c
-//  / \     \
-// d   e     f
+// //      a
+// //    /   \
+// //   b     c
+// //  / \     \
+// // d   e     f
 
-breadthFirstValues(a); 
+// breadthFirstValues(a); 
 // //    -> ['a', 'b', 'c', 'd', 'e', 'f']
 // //test_01:
 // const a = new Node('a');
@@ -252,3 +252,36 @@ breadthFirstValues(a);
 // //test_04:
 // breadthFirstValues(null); 
 // //    -> []
+
+
+// DEPTH FIRST SUM
+// const bstSum = root => {
+//   // a place to visualize the values
+//   let values = [];
+//   // declare a variable to store sum
+//   let sum = 0;
+
+//   // create helper function to find leftmost node
+//   function traversePreOrder(root) {
+
+//     if (!root) return sum;
+
+//     // push root node to values
+//     values.push(root.value);
+//     sum += root.value;
+
+//     // if left node exists, traverse recursively 
+//     if (root.left) traversePreOrder(root.left);
+    
+//     // if right node exists, traverse recursively 
+//     if (root.right) traversePreOrder(root.right);
+//   }
+
+//   // invoke helper function
+//   traversePreOrder(root);
+
+//   console.log(`The sum is: ${sum} and here are the nodes we visited in order: ${values}`)
+
+//   // return sum
+//   return sum;
+// };
