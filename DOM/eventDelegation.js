@@ -51,7 +51,7 @@ document.querySelector('#golf').addEventListener('click', function(e) {
 // DRY -- uses parent element to delegate the event
 document.querySelector('#sports').addEventListener('click', function(e) {
 
-  console.log(e.target.getAttribute('id') + ' is clicked!';
+  console.log(e.target.getAttribute('id') + ' is clicked!');
   
   const target = e.target;
 
