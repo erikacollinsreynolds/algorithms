@@ -187,3 +187,143 @@ class Node {
 // // h -> i -> j -> i
 
 // console.log(removeNode(node1, "i"));
+
+
+
+
+// const nestedArr = [['elephant'], ['anaconda'], ['zebra'], ['gorilla']];
+// const nestedArr1 = [['elephant', 'apple', 'snake'], ['anaconda', 'jumping spider', 'blue bird'], ['zebra', 'dog'], ['gorilla', 'chipmunk', 'cat']];
+
+// const postNestedArr = nestedArr.sort();
+// const postNestedArr1 = nestedArr1.sort();
+
+// console.log(nestedArr);
+// console.log(postNestedArr);
+// console.log(nestedArr1);
+// console.log(postNestedArr1);
+
+// function objToSortedArray(obj) {
+//   const returnArr = [];
+//   const keysOfObj = Object.keys(obj);
+//   const valsOfObj = Object.values(obj);
+
+//   for (let i = 0; i < keysOfObj.length; i++) {
+//     const nestedArr = [];
+//     nestedArr.push(keysOfObj[i], valsOfObj[i]);
+//     console.log(nestedArr);
+//     returnArr.push(nestedArr);    
+//   }
+//   returnArr.sort();
+//   return returnArr;
+// }
+
+// console.log(objToSortedArray([['chris', 503030495], ['andy', 29384092], ['mildew', 90128402]]));
+
+
+// // INSERT NODE
+// const insertNode = (head, value, index) => {
+//   const node = new Node(value);
+//   let current = head;
+  
+//   // edge case if we want to insert at head
+//   if (index === 0) {
+//     node.next = head;
+//     return node;
+//   };
+//   while (index >= 1) {
+//     index -= 1;
+//     current = current.next;
+//     if (index === 1) {
+//       let prev = current;
+//       let next = current.next;
+//       prev.next = node;
+//       node.next = next;
+//       return head;
+//     }
+//   }
+// };
+
+// const a = new Node("a");
+// const b = new Node("b");
+// const c = new Node("c");
+// const d = new Node("d");
+
+// a.next = b;
+// b.next = c;
+// c.next = d;
+
+// // a -> b -> c -> d
+
+// console.log(insertNode(a, 'x', 2));
+// // a -> b -> x -> c -> d
+
+// // CREATE LINKED LIST
+// const createLinkedList = (values) => {
+//   const length = values.length;
+//   const head = new Node(values[0]);
+//   const sliced = values.slice(1);
+//   let current = head;
+  
+//   sliced.forEach(el => {
+//     current.next = new Node(el);
+//     current = current.next;
+//   })
+
+//   return head;
+// };
+
+// createLinkedList([1, 7, 1, 8]);
+// // 1 -> 7 -> 1 -> 8
+
+// const addLists = (head1, head2) => {
+//   let num1 = '';
+//   let num2 = '';
+//   let curr = head1;
+  
+//   while (curr !== null){
+//     num1 += curr.val;
+//     curr = curr.next;
+//   }
+//   curr = head2;
+//   while (curr !== null) {
+//     num2 += curr.val;
+//     curr = curr.next;   
+//   }
+
+//   num1 = num1.split("").reverse().join("");
+//   num2 = num2.split("").reverse().join("");
+
+//   const sum = Number(num1) + Number(num2);
+  
+//   function createList(num) {
+//     let number = JSON.stringify(num);
+//     number = number.split("").reverse().join("");
+
+//     const head = new Node(number[0]);
+//     let current = head;
+  
+//     for (let i = 1; i < number.length; i++) {
+//       current.next = new Node(number[i]);
+//       current = current.next;
+//     }
+//     return head;
+//   }
+//   return createList(sum);
+// };
+
+// const a1 = new Node(1);
+// const a2 = new Node(4);
+// const a3 = new Node(5);
+// const a4 = new Node(7);
+// a1.next = a2;
+// a2.next = a3;
+// a3.next = a4;
+// // 1 -> 4 -> 5 -> 7
+
+// const b1 = new Node(2);
+// const b2 = new Node(3);
+// b1.next = b2;
+// // 2 -> 3 
+
+// console.log(addLists(a1, b1));
+// // 3 -> 7 -> 5 -> 7
