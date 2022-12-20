@@ -81,48 +81,94 @@ class Node {
 
 
 // // TREE MIN VALUE
-const treeMinValue = (root) => {
-  if (root === null) return Infinity;
-  const smallLeft = treeMinValue(root.left);
-  const smallRight = treeMinValue(root.right);
-  return Math.min(root.val, smallLeft, smallRight);
+// const treeMinValue = (root) => {
+//   if (root === null) return Infinity;
+//   const smallLeft = treeMinValue(root.left);
+//   const smallRight = treeMinValue(root.right);
+//   return Math.min(root.val, smallLeft, smallRight);
+// };
+
+// const a = new Node(-1);
+// const b = new Node(-6);
+// const c = new Node(-5);
+// const d = new Node(-3);
+// const e = new Node(-4);
+// const f = new Node(-13);
+// const g = new Node(-2);
+// const h = new Node(-2);
+
+// a.left = b;
+// a.right = c;
+// b.left = d;
+// b.right = e;
+// c.right = f;
+// e.left = g;
+// f.right = h;
+
+// //        -1
+// //      /   \
+// //    -6    -5
+// //   /  \     \
+// // -3   -4   -13
+// //     /       \
+// //    -2       -2
+
+// console.log(treeMinValue(a)); // -> -13
+
+
+// // MAX PATH SUM
+// const maxPathSum = (root, sum = 0) => {
+//   if (root === null) return -Infinity;
+//   if (root.left === null && root.right === null) return root.val;
+//   return root.val + Math.max(maxPathSum(root.left), maxPathSum(root.right));
+// };
+
+
+// const a = new Node(3);
+// const b = new Node(11);
+// const c = new Node(4);
+// const d = new Node(4);
+// const e = new Node(-2);
+// const f = new Node(1);
+
+// a.left = b;
+// a.right = c;
+// b.left = d;
+// b.right = e;
+// c.right = f;
+
+// //       3
+// //    /    \
+// //   11     4
+// //  / \      \
+// // 4   -2     1
+
+// console.log(maxPathSum(a)); // -> 18
+
+
+// // TREE PATH FINDER
+const pathFinder = (root, target) => {
+  
 };
 
-const a = new Node(-1);
-const b = new Node(-6);
-const c = new Node(-5);
-const d = new Node(-3);
-const e = new Node(-4);
-const f = new Node(-13);
-const g = new Node(-2);
-const h = new Node(-2);
+
+const a = new Node("a");
+const b = new Node("b");
+const c = new Node("c");
+const d = new Node("d");
+const e = new Node("e");
+const f = new Node("f");
 
 a.left = b;
 a.right = c;
 b.left = d;
 b.right = e;
 c.right = f;
-e.left = g;
-f.right = h;
 
-//        -1
-//      /   \
-//    -6    -5
-//   /  \     \
-// -3   -4   -13
-//     /       \
-//    -2       -2
+//      a
+//    /   \
+//   b     c
+//  / \     \
+// d   e     f
 
-console.log(treeMinValue(a)); // -> -13
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(pathFinder(a, 'e')); // -> [ 'a', 'b', 'e' ]
