@@ -82,23 +82,3 @@ Considerations: negative numbers
 // }
 
 // console.log(twoSum([2, 7, 11, 15], 17));
-
-function pangrams(s) {
-  const abc = 'abcdefghijklmnopqrstuvwxyz';
-
-  let str = s.replace(/[^\w]/g,'').toLowerCase().split('');
-  str = [...new Set(str)];
-  str = str.sort().join('');
-
-  return str === abc ? 'pangram' : 'not pangram';
-}   
-
-
-
-
-
-
-
-
-
-
