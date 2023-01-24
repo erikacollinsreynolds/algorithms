@@ -72,18 +72,26 @@ Considerations: negative numbers
 //   }
 // }
 
-const twoSum = (array, target) => {
-  const cache = {};
+// const twoSum = (array, target) => {
+//   const cache = {};
 
-  for (let i = 0; i < array.length; i++) {
-    const complement = target - array[i];
-    // figure the rest out here
-  }
-}
+//   for (let i = 0; i < array.length; i++) {
+//     const complement = target - array[i];
+//     // figure the rest out here
+//   }
+// }
 
-console.log(twoSum([2, 7, 11, 15], 17));
+// console.log(twoSum([2, 7, 11, 15], 17));
 
+function pangrams(s) {
+  const abc = 'abcdefghijklmnopqrstuvwxyz';
 
+  let str = s.replace(/[^\w]/g,'').toLowerCase().split('');
+  str = [...new Set(str)];
+  str = str.sort().join('');
+
+  return str === abc ? 'pangram' : 'not pangram';
+}   
 
 
 
