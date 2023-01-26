@@ -74,27 +74,27 @@
   // Time Complexity: 0(n)
   // Space Complexity: 0(1)
 
-// const smallestLength = (array, s) => {
-//   let L = Infinity,
-//     start = 0,
-//     sum = 0
+const smallestLength = (array, s) => {
+  let L = Infinity,
+    start = 0,
+    sum = 0
   
-//   // If 's' already exists in the array, no need to go in the loop
-//   if (array.includes(s)) return 1;
+  // If 's' already exists in the array, no need to go in the loop
+  if (array.includes(s)) return 1;
 
-//   for (let end = 0; end < array.length; end++) {
-//     sum += array[end] // add each element to sum
+  for (let end = 0; end < array.length; end++) {
+    sum += array[end] // add each element to sum
 
-//     while (sum >= s){
-//       L = Math.min(L, end - start + 1); // compare current l to  current window (but shouldn't this only check if it's equal??)
-//       sum -= array[start]; // subtract start element from sum
-//       start += 1; // move start window to right by one element
-//     }
-//   }
-//   if (L === Infinity) return 0; // if nothing added to s
+    while (sum >= s){
+      L = Math.min(L, end - start + 1); // compare current l to  current window (but shouldn't this only check if it's equal??)
+      sum -= array[start]; // subtract start element from sum
+      start += 1; // move start window to right by one element
+    }
+  }
+  if (L === Infinity) return 0; // if nothing added to s
 
-//   return L; 
-// }
+  return L; 
+}
 
 // console.log(smallestLength([2, 1, 5, 2, 3, 2], 7)) // Output: 2
 // console.log(smallestLength([2, 7, 5, 2, 3, 2], 7)) // Output: 1
