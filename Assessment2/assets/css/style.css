@@ -1,0 +1,60 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+}
+button {
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+  padding: 5px 10px;
+  transition: all 0.2s;
+}
+button:hover {
+  background-color: black;
+  color: white;
+}
+p {
+  margin: 5px;
+}
+
+.title {
+  font-size: 40px;
+  margin: 20px 50px;
+  padding-bottom: 10px;
+}
+
+#create {
+  margin-left: 50px;
+}
+
+#item-list {
+  margin-left: 50px;
+  margin-top: 20px;
+  width: 400px;
+}
+.item {
+  border: 2px dashed black;
+  padding: 10px;
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  align-items: center;
+}
+.purchase {
+  height: fit-content;
+}
+
+#signin {
+  width: 200px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+}
+#submit {
+  width: fit-content;
+  align-self: center;
+}

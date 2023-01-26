@@ -14,34 +14,34 @@
 
 // Input: callback, some args
 // Output: return function (accepts some args)
-// function rotationSequence(callback, ...args) {
-//   let i = 0;
-//   let results;
+function rotationSequence(callback, ...args) {
+  let i = 0;
+  let results;
 
-//   // only takes args that were passed to outer function
-//   return function inner(...otherArgs) {
-//     let arguments = [...args];
-//     results = [];
+  // only takes args that were passed to outer function
+  return function inner(...otherArgs) {
+    let arguments = [...args];
+    results = [];
 
-//     for (let el = 0; el < otherArgs.length; el++){
-//       if (i === arguments.length) i = 0;
-//       if (otherArgs[el] === arguments[i]) {
-//         results.push(callback(otherArgs[el]));
-//         i += 1;
-//       } else {
-//         return "invalid input"
-//       }
-//     }
-//     return results;
-//   }
-// }
+    for (let el = 0; el < otherArgs.length; el++){
+      if (i === arguments.length) i = 0;
+      if (otherArgs[el] === arguments[i]) {
+        results.push(callback(otherArgs[el]));
+        i += 1;
+      } else {
+        return "invalid input"
+      }
+    }
+    return results;
+  }
+}
 
-// const multiplyBy2 = (num) => num * 2;
-// const zeroToTwenty = rotationSequence(multiplyBy2, 0, 5, 10, 15, 20);
-// console.log(zeroToTwenty(0, 5, 10)) // -> [0, 10, 20]
-// console.log(zeroToTwenty(20)) // -> ‘invalid input’
-// console.log(zeroToTwenty(15, 20, 0, 5)) // -> [30, 40, 0, 10]
-// console.log(zeroToTwenty(10, 15, 20, 0, 5, 10, 15, 20, 0)) // => [20, 30, 40, 0, 10, 30, 40, 0]
+const multiplyBy2 = (num) => num * 2;
+const zeroToTwenty = rotationSequence(multiplyBy2, 0, 5, 10, 15, 20);
+console.log(zeroToTwenty(0, 5, 10)) // -> [0, 10, 20]
+console.log(zeroToTwenty(20)) // -> ‘invalid input’
+console.log(zeroToTwenty(15, 20, 0, 5)) // -> [30, 40, 0, 10]
+console.log(zeroToTwenty(10, 15, 20, 0, 5, 10, 15, 20, 0)) // => [20, 30, 40, 0, 10, 30, 40, 0]
 
 
 // Declare a function “stringLeveler”, which takes two arguments: an array of strings and a number.
@@ -56,39 +56,39 @@
 
 // input: array, num
 // output: string of all characters that were deleted
-// function stringLeveler(arrayOfStrings, num) {
-//   // edge cases (empty array)
-//   if (arrayOfStrings.length === 0) return undefined;
+function stringLeveler(arrayOfStrings, num) {
+  // edge cases (empty array)
+  if (arrayOfStrings.length === 0) return undefined;
 
-//   // deletedChars
-//   let deletedChars = '';
+  // deletedChars
+  let deletedChars = '';
 
-//   // loop thru input array
-//   for (let i = 0; i < arrayOfStrings.length; i++){
-//     // check if length is less than num
-//     if (arrayOfStrings[i].length < num){
-//       // if so --> add * to string, until the length reaches num
-//       let stars = num - arrayOfStrings[i].length - 1;
-//       while (stars >= 0) {
-//         arrayOfStrings[i] += '*'
-//         stars -= 1;
-//       }
-//     } else {
-//       // in not --> delete the end of the word so it leaves num characters remaining
-//           // add deleted chars to deletedChars
-//       let deleted = arrayOfStrings[i].slice(num);
-//       deletedChars += deleted;
-//       arrayOfStrings[i].split("").splice(num).join("");
-//       arrayOfStrings[i] = arrayOfStrings[i].slice(0, num);
-//     }
-//   }
+  // loop thru input array
+  for (let i = 0; i < arrayOfStrings.length; i++){
+    // check if length is less than num
+    if (arrayOfStrings[i].length < num){
+      // if so --> add * to string, until the length reaches num
+      let stars = num - arrayOfStrings[i].length - 1;
+      while (stars >= 0) {
+        arrayOfStrings[i] += '*'
+        stars -= 1;
+      }
+    } else {
+      // in not --> delete the end of the word so it leaves num characters remaining
+          // add deleted chars to deletedChars
+      let deleted = arrayOfStrings[i].slice(num);
+      deletedChars += deleted;
+      arrayOfStrings[i].split("").splice(num).join("");
+      arrayOfStrings[i] = arrayOfStrings[i].slice(0, num);
+    }
+  }
   
-//   return deletedChars;
-// }
+  return deletedChars;
+}
 
-// const creatures = ['cat', 'ferret', 'elephant', 'tyrannosaurus', 'minotaur'];
-// console.log(stringLeveler(creatures, 6)) // -> ‘ntosaurusur’ --> deleted
-// console.log(creatures) // -> [‘cat***’, ‘ferret’, ‘elepha’, ‘tyrann’, ‘minota’];
+const creatures = ['cat', 'ferret', 'elephant', 'tyrannosaurus', 'minotaur'];
+console.log(stringLeveler(creatures, 6)) // -> ‘ntosaurusur’ --> deleted
+console.log(creatures) // -> [‘cat***’, ‘ferret’, ‘elepha’, ‘tyrann’, ‘minota’];
 
 
 
@@ -100,17 +100,17 @@
 // deepMap([1, 3, 5, [4, 10, [11], 12, [22, 8]]], multiplyBy2) // -> [2, 6, 10, [8, 20, [22], 24, [44, 16]]]]
 
 
-// function deepMap(array, callback) {
-//   let output = [];
-//   for (let i = 0; i < array.length; i++) {
-//     if (Array.isArray(array[i])) {
-//       output.push(deepMap(array[i], callback))
-//     } else {
-//      output.push(callback(array[i]))
-//     }
-//   }
-//   return output;
-// } 
+function deepMap(array, callback) {
+  let output = [];
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      output.push(deepMap(array[i], callback))
+    } else {
+     output.push(callback(array[i]))
+    }
+  }
+  return output;
+} 
 
-// const multiply2 = (num) => num * 2;
-// console.log(deepMap([1, 3, 5, [4, 10, [11], 12, [22, 8]]], multiply2) )// -> [2, 6, 10, [8, 20, [22], 24, [44, 16]]]]
+const multiply2 = (num) => num * 2;
+console.log(deepMap([1, 3, 5, [4, 10, [11], 12, [22, 8]]], multiply2) )// -> [2, 6, 10, [8, 20, [22], 24, [44, 16]]]]
